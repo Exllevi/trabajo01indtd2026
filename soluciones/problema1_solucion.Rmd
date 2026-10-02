@@ -1,0 +1,136 @@
+---
+title: "Problema 1 - Decisión cinematográfica Óscar 2027"
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Problema 1: decisión cinematográfica
+
+Esta es la tabla de decisión del problema.
+
+```{r setup, include=FALSE}
+source("../recursos/teoriadecision_funciones_incertidumbre.R")
+```
+
+```{r}
+tablaX <- matrix(
+  c(18, 8, -4,
+    12, 9, 1,
+    10, 7, 3,
+    20, 5, -8),
+  nrow = 4,
+  byrow = TRUE
+)
+
+rownames(tablaX) <- c(
+  "A1. La Odisea",
+  "A2. La bola negra",
+  "A3. Fjord",
+  "A4. Dune: Parte tres"
+)
+
+colnames(tablaX) <- c(
+  "Q1. Gran repercusión",
+  "Q2. Repercusión moderada",
+  "Q3. Escasa repercusión"
+)
+
+tablaX
+```
+# Resolución mediante los criterios de decisión
+
+## Situación favorable
+
+### Criterio de Wald
+
+```{r}
+criterio.Wald(tablaX, favorable = TRUE)
+```
+
+### Criterio Optimista
+
+```{r}
+criterio.Optimista(tablaX, favorable = TRUE)
+```
+
+### Criterio de Hurwicz
+
+Se utiliza un coeficiente de optimismo k = 0,3.
+
+```{r}
+criterio.Hurwicz(tablaX, alfa = 0.3, favorable = TRUE)
+```
+
+### Criterio de Savage
+
+```{r}
+criterio.Savage(tablaX, favorable = TRUE)
+```
+
+### Criterio de Laplace
+
+```{r}
+criterio.Laplace(tablaX, favorable = TRUE)
+```
+
+### Criterio del Punto Ideal
+
+```{r}
+criterio.PuntoIdeal(tablaX, favorable = TRUE)
+```
+
+## Situación desfavorable
+
+### Criterio de Wald
+
+```{r}
+criterio.Wald(tablaX, favorable = FALSE)
+```
+
+### Criterio Optimista
+
+```{r}
+criterio.Optimista(tablaX, favorable = FALSE)
+```
+
+### Criterio de Hurwicz
+
+Se utiliza un coeficiente de optimismo k= 0,3.
+
+```{r}
+criterio.Hurwicz(tablaX, alfa = 0.3, favorable = FALSE)
+```
+
+### Criterio de Savage
+
+```{r}
+criterio.Savage(tablaX, favorable = FALSE)
+```
+
+### Criterio de Laplace
+
+```{r}
+criterio.Laplace(tablaX, favorable = FALSE)
+```
+
+### Criterio del Punto Ideal
+
+```{r}
+criterio.PuntoIdeal(tablaX, favorable = FALSE)
+```
+
+# Respuestas a las cuestiones de verdadero o falso
+
+1. **Verdadera.** A1. La Odisea tiene un beneficio de -4 millones de euros en Q3.
+
+2. **Verdadera.** A4. Dune: Parte tres alcanza el mayor beneficio posible de la tabla, con 20 millones de euros en Q1.
+
+3. **Verdadera.** El peor resultado de A3. Fjord es 3 millones de euros, superior al peor resultado de las demás alternativas.
+
+4. **Falsa.** La alternativa A2 (La bola negra) presenta 1 millón de euros en Q3, no 3 millones.
+
+5. **Falsa.** En el estado Q2, la alternativa que presenta el mayor beneficio es A2 (La bola negra), con 9 millones de euros, mientras que A4 (Dune: Parte tres) obtiene 5 millones de euros.

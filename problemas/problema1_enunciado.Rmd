@@ -1,0 +1,42 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# Problema 1. Decisión de inversión cinematográfica en los Óscar 2027
+
+## Enunciado
+
+Una distribuidora cinematográfica dispone de un presupuesto extraordinario para promocionar una película durante la temporada de premios de los Óscar de 2027. Su objetivo es elegir la película en la que invertir ese presupuesto para obtener el mayor beneficio económico adicional.
+
+La distribuidora está considerando cuatro películas: *La Odisea*, *La bola negra*, *Fjord* y *Dune: Parte tres*. El caso es hipotético: no se presupone que estas películas estén nominadas a los Óscar ni que vayan a obtener determinados resultados.
+
+El beneficio adicional dependerá de la recepción de la película durante la temporada de premios. Se consideran tres posibles estados de la naturaleza:
+
+- **Q1. Gran repercusión:** la película genera una gran atención mediática y obtiene un reconocimiento destacado durante la temporada de premios.
+- **Q2. Repercusión moderada:** la película recibe cierta atención y reconocimiento, pero su impacto comercial es limitado.
+- **Q3. Escasa repercusión:** la película obtiene poca atención durante la temporada de premios y la inversión promocional produce resultados reducidos.
+
+La distribuidora ha elaborado las siguientes estimaciones hipotéticas del beneficio adicional neto, expresado en millones de euros:
+
+| Película | Q1: Gran repercusión | Q2: Repercusión moderada | Q3: Escasa repercusión |
+|------------------|-----------------:|-----------------:|-----------------:|
+| A1. La Odisea | 18 | 8 | -4 |
+| A2. La bola negra | 12 | 9 | 1 |
+| A3. Fjord | 10 | 7 | 3 |
+| A4. Dune: Parte tres | 20 | 5 | -8 |
+
+Los valores negativos representan pérdidas adicionales derivadas de que la inversión promocional no se recupere.
+
+Se pide resolver el problema mediante los criterios de Wald, Optimista, Hurwicz (con k = 0,3), Savage, Laplace y Punto Ideal, utilizando las funciones proporcionadas en la asignatura. Se estudiarán las interpretaciones favorable y desfavorable previstas por dichas funciones.
+
+## Preguntas de verdadero o falso
+
+Indica si cada afirmación es verdadera o falsa. Puede haber varias afirmaciones verdaderas.
+
+1.  La alternativa A1 (*La Odisea*) presenta un beneficio negativo en el estado Q3.
+2.  La alternativa A4 (*Dune: Parte tres*) tiene el mayor beneficio posible de toda la tabla.
+3.  La alternativa A3 (*Fjord*) presenta el mayor beneficio mínimo entre las cuatro alternativas.
+4. La alternativa A2 (*La bola negra*) presenta un beneficio de 3 millones de euros en el estado Q3.
+5. La alternativa A4 (*Dune: Parte tres*) obtiene el mayor beneficio en el estado Q2.
+
