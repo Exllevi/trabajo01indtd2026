@@ -1,0 +1,46 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# Problema 2. Decisión de salud pública sobre el control del OxyContin
+
+## Enunciado
+
+A finales de la década de 1990 y principios de los 2000, diversas agencias de salud pública se enfrentaron a la introducción y fuerte promoción comercial de nuevos analgésicos opioides, como el OxyContin. Para este problema basado en una situación real, nos situamos en la posición de un comité de un servicio regional de salud que debe establecer el protocolo oficial para la prescripción de este potente medicamento.
+
+El comité busca maximizar el "beneficio social neto", una métrica que suma los beneficios derivados del alivio efectivo del dolor en la población y resta los graves costes sanitarios, sociales y económicos derivados de la adicción, sobredosis y desvío al mercado negro. 
+
+El comité valora cuatro alternativas (protocolos):
+
+- **A1. Prescripción generalizada (Laxa):** Permitir a cualquier médico recetar el fármaco para dolores moderados y crónicos no oncológicos, tal y como sugería la campaña de la farmacéutica.
+- **A2. Uso estrictamente oncológico:** Restringir la prescripción exclusivamente a pacientes con cáncer terminal o dolor agudo postoperatorio severo en entorno hospitalario.
+- **A3. Prescripción con control estricto:** Permitir el uso para dolor crónico, pero exigiendo derivación a Unidades del Dolor, contratos terapéuticos, test de drogas regulares y seguimiento exhaustivo.
+- **A4. Restricción total / Sustitución:** Prohibir su inclusión en el vademécum regional, obligando a usar alternativas no opioides o analgésicos tradicionales menos potentes.
+
+El impacto final depende fundamentalmente de la respuesta poblacional y del potencial adictivo real del fármaco a largo plazo (estado de la naturaleza):
+
+- **Q1. Baja tasa de adicción:** El medicamento se usa mayoritariamente según lo prescrito y los casos de abuso son anecdóticos.
+- **Q2. Adicción moderada:** Existe un desvío moderado al mercado negro y una parte de los pacientes desarrolla dependencia que requiere tratamiento.
+- **Q3. Adicción severa:** Se desata una crisis epidémica de opioides con altos índices de mortalidad, crimen y colapso de los servicios de urgencias.
+
+La estimación del beneficio social neto (expresado en millones de euros, donde los valores negativos representan un desastre social y económico) es la siguiente:
+
+| Protocolo | Q1: Baja adicción | Q2: Adicción moderada | Q3: Adicción severa |
+|------------------|-----------------:|-----------------:|-----------------:|
+| A1. Prescripción generalizada | 50 | 10 | -80 |
+| A2. Uso estrictamente oncológico | 20 | 20 | 15 |
+| A3. Control estricto | 35 | 25 | -10 |
+| A4. Restricción total | 10 | 10 | 10 |
+
+Se pide resolver el problema utilizando la función en R que agrupa todos los criterios de decisión en una única tabla. Se utilizará un coeficiente de optimismo k = 0,4. Se evaluará la matriz tanto en situación favorable (buscando maximizar el beneficio social) como desfavorable (en caso de que la matriz se interpretara como costes a minimizar).
+
+## Preguntas de verdadero o falso
+
+Indica si cada afirmación es verdadera o falsa. Puede haber varias afirmaciones verdaderas.
+
+1. La alternativa A4 (Restricción total) proporciona exactamente el mismo beneficio social independientemente del estado de la naturaleza que se presente.
+2. En el peor escenario posible (Q3: Adicción severa), la prescripción generalizada (A1) genera las mayores pérdidas sociales y económicas de toda la tabla.
+3. El protocolo de control estricto (A3) domina absolutamente a la alternativa de uso estrictamente oncológico (A2), superando sus resultados en todos los escenarios posibles.
+4. El mayor beneficio posible de toda la tabla se obtiene implementando el uso estrictamente oncológico (A2) en un escenario de baja adicción (Q1).
+5. Si la tasa de adicción en la población resulta ser moderada (Q2), el protocolo con control estricto (A3) aporta un mayor beneficio social que la prescripción generalizada (A1).
