@@ -356,6 +356,82 @@ display: none;
 
 <div id="problema-1-decisión-cinematográfica" class="section level1">
 <h1>Problema 1: decisión cinematográfica</h1>
+<div id="enunciado" class="section level2">
+<h2>Enunciado</h2>
+<p>Una distribuidora cinematográfica dispone de un presupuesto
+extraordinario para promocionar una película durante la temporada de
+premios de los Óscar de 2027. Su objetivo es elegir la película en la
+que invertir ese presupuesto para obtener el mayor beneficio económico
+adicional.</p>
+<p>La distribuidora está considerando cuatro películas: <em>La
+Odisea</em>, <em>La bola negra</em>, <em>Fjord</em> y <em>Dune: Parte
+tres</em>. El caso es hipotético: no se presupone que estas películas
+estén nominadas a los Óscar ni que vayan a obtener determinados
+resultados.</p>
+<p>El beneficio adicional dependerá de la recepción de la película
+durante la temporada de premios. Se consideran tres posibles estados de
+la naturaleza:</p>
+<ul>
+<li><strong>Q1. Gran repercusión:</strong> la película genera una gran
+atención mediática y obtiene un reconocimiento destacado durante la
+temporada de premios.</li>
+<li><strong>Q2. Repercusión moderada:</strong> la película recibe cierta
+atención y reconocimiento, pero su impacto comercial es limitado.</li>
+<li><strong>Q3. Escasa repercusión:</strong> la película obtiene poca
+atención durante la temporada de premios y la inversión promocional
+produce resultados reducidos.</li>
+</ul>
+<p>La distribuidora ha elaborado las siguientes estimaciones hipotéticas
+del beneficio adicional neto, expresado en millones de euros:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Película</th>
+<th align="right">Q1: Gran repercusión</th>
+<th align="right">Q2: Repercusión moderada</th>
+<th align="right">Q3: Escasa repercusión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1. La Odisea</td>
+<td align="right">18</td>
+<td align="right">8</td>
+<td align="right">-4</td>
+</tr>
+<tr class="even">
+<td>A2. La bola negra</td>
+<td align="right">12</td>
+<td align="right">9</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>A3. Fjord</td>
+<td align="right">10</td>
+<td align="right">7</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td>A4. Dune: Parte tres</td>
+<td align="right">20</td>
+<td align="right">5</td>
+<td align="right">-8</td>
+</tr>
+</tbody>
+</table>
+<p>Los valores negativos representan pérdidas adicionales derivadas de
+que la inversión promocional no se recupere.</p>
+<p>Se pide resolver el problema mediante los criterios de Wald,
+Optimista, Hurwicz (con k = 0,3), Savage, Laplace y Punto Ideal,
+utilizando las funciones proporcionadas en la asignatura. Se estudiarán
+las interpretaciones favorable y desfavorable previstas por dichas
+funciones.</p>
 <p>Esta es la tabla de decisión del problema.</p>
 <pre class="r"><code>tablaX &lt;- matrix(
   c(18, 8, -4,
@@ -391,12 +467,12 @@ tablaX</code></pre>
 ## A3. Fjord                                 3
 ## A4. Dune: Parte tres                     -8</code></pre>
 </div>
-<div id="resolución-mediante-los-criterios-de-decisión" class="section level1">
-<h1>Resolución mediante los criterios de decisión</h1>
-<div id="situación-favorable" class="section level2">
-<h2>Situación favorable</h2>
-<div id="criterio-de-wald" class="section level3">
-<h3>Criterio de Wald</h3>
+<div id="resolución-mediante-los-criterios-de-decisión" class="section level2">
+<h2>Resolución mediante los criterios de decisión</h2>
+<div id="situación-favorable" class="section level3">
+<h3>Situación favorable</h3>
+<div id="criterio-de-wald" class="section level4">
+<h4>Criterio de Wald</h4>
 <pre class="r"><code>criterio.Wald(tablaX, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Wald&quot;
@@ -429,8 +505,8 @@ tablaX</code></pre>
 ## A3. Fjord 
 ##         3</code></pre>
 </div>
-<div id="criterio-optimista" class="section level3">
-<h3>Criterio Optimista</h3>
+<div id="criterio-optimista" class="section level4">
+<h4>Criterio Optimista</h4>
 <pre class="r"><code>criterio.Optimista(tablaX, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Optimista&quot;
@@ -463,9 +539,9 @@ tablaX</code></pre>
 ## A4. Dune: Parte tres 
 ##                    4</code></pre>
 </div>
-<div id="criterio-de-hurwicz" class="section level3">
-<h3>Criterio de Hurwicz</h3>
-<p>Se utiliza un coeficiente de optimismo α = 0,3.</p>
+<div id="criterio-de-hurwicz" class="section level4">
+<h4>Criterio de Hurwicz</h4>
+<p>Se utiliza un coeficiente de optimismo k = 0,3.</p>
 <pre class="r"><code>criterio.Hurwicz(tablaX, alfa = 0.3, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Hurwicz&quot;
@@ -501,8 +577,8 @@ tablaX</code></pre>
 ## A3. Fjord 
 ##         3</code></pre>
 </div>
-<div id="criterio-de-savage" class="section level3">
-<h3>Criterio de Savage</h3>
+<div id="criterio-de-savage" class="section level4">
+<h4>Criterio de Savage</h4>
 <pre class="r"><code>criterio.Savage(tablaX, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Savage&quot;
@@ -551,8 +627,8 @@ tablaX</code></pre>
 ## A1. La Odisea 
 ##             1</code></pre>
 </div>
-<div id="criterio-de-laplace" class="section level3">
-<h3>Criterio de Laplace</h3>
+<div id="criterio-de-laplace" class="section level4">
+<h4>Criterio de Laplace</h4>
 <pre class="r"><code>criterio.Laplace(tablaX, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Laplace&quot;
@@ -585,8 +661,8 @@ tablaX</code></pre>
 ##     A1. La Odisea A2. La bola negra 
 ##                 1                 2</code></pre>
 </div>
-<div id="criterio-del-punto-ideal" class="section level3">
-<h3>Criterio del Punto Ideal</h3>
+<div id="criterio-del-punto-ideal" class="section level4">
+<h4>Criterio del Punto Ideal</h4>
 <pre class="r"><code>criterio.PuntoIdeal(tablaX, favorable = TRUE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Punto Ideal&quot;
@@ -624,10 +700,10 @@ tablaX</code></pre>
 ##             1</code></pre>
 </div>
 </div>
-<div id="situación-desfavorable" class="section level2">
-<h2>Situación desfavorable</h2>
-<div id="criterio-de-wald-1" class="section level3">
-<h3>Criterio de Wald</h3>
+<div id="situación-desfavorable" class="section level3">
+<h3>Situación desfavorable</h3>
+<div id="criterio-de-wald-1" class="section level4">
+<h4>Criterio de Wald</h4>
 <pre class="r"><code>criterio.Wald(tablaX, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Wald&quot;
@@ -660,8 +736,8 @@ tablaX</code></pre>
 ## A3. Fjord 
 ##         3</code></pre>
 </div>
-<div id="criterio-optimista-1" class="section level3">
-<h3>Criterio Optimista</h3>
+<div id="criterio-optimista-1" class="section level4">
+<h4>Criterio Optimista</h4>
 <pre class="r"><code>criterio.Optimista(tablaX, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Optimista&quot;
@@ -694,9 +770,9 @@ tablaX</code></pre>
 ## A4. Dune: Parte tres 
 ##                    4</code></pre>
 </div>
-<div id="criterio-de-hurwicz-1" class="section level3">
-<h3>Criterio de Hurwicz</h3>
-<p>Se utiliza un coeficiente de optimismo α = 0,3.</p>
+<div id="criterio-de-hurwicz-1" class="section level4">
+<h4>Criterio de Hurwicz</h4>
+<p>Se utiliza un coeficiente de optimismo k= 0,3.</p>
 <pre class="r"><code>criterio.Hurwicz(tablaX, alfa = 0.3, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Hurwicz&quot;
@@ -732,8 +808,8 @@ tablaX</code></pre>
 ## A3. Fjord 
 ##         3</code></pre>
 </div>
-<div id="criterio-de-savage-1" class="section level3">
-<h3>Criterio de Savage</h3>
+<div id="criterio-de-savage-1" class="section level4">
+<h4>Criterio de Savage</h4>
 <pre class="r"><code>criterio.Savage(tablaX, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Savage&quot;
@@ -782,8 +858,8 @@ tablaX</code></pre>
 ## A1. La Odisea 
 ##             1</code></pre>
 </div>
-<div id="criterio-de-laplace-1" class="section level3">
-<h3>Criterio de Laplace</h3>
+<div id="criterio-de-laplace-1" class="section level4">
+<h4>Criterio de Laplace</h4>
 <pre class="r"><code>criterio.Laplace(tablaX, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Laplace&quot;
@@ -816,8 +892,8 @@ tablaX</code></pre>
 ## A4. Dune: Parte tres 
 ##                    4</code></pre>
 </div>
-<div id="criterio-del-punto-ideal-1" class="section level3">
-<h3>Criterio del Punto Ideal</h3>
+<div id="criterio-del-punto-ideal-1" class="section level4">
+<h4>Criterio del Punto Ideal</h4>
 <pre class="r"><code>criterio.PuntoIdeal(tablaX, favorable = FALSE)</code></pre>
 <pre><code>## $criterio
 ## [1] &quot;Punto Ideal&quot;
@@ -856,8 +932,8 @@ tablaX</code></pre>
 </div>
 </div>
 </div>
-<div id="respuestas-a-las-cuestiones-de-verdadero-o-falso" class="section level1">
-<h1>Respuestas a las cuestiones de verdadero o falso</h1>
+<div id="respuestas-a-las-cuestiones-de-verdadero-o-falso" class="section level2">
+<h2>Respuestas a las cuestiones de verdadero o falso</h2>
 <ol style="list-style-type: decimal">
 <li><p><strong>Verdadera.</strong> A1. La Odisea tiene un beneficio de
 -4 millones de euros en Q3.</p></li>
@@ -866,13 +942,16 @@ beneficio posible de la tabla, con 20 millones de euros en Q1.</p></li>
 <li><p><strong>Verdadera.</strong> El peor resultado de A3. Fjord es 3
 millones de euros, superior al peor resultado de las demás
 alternativas.</p></li>
-<li><p><strong>Falsa.</strong> La alternativa A2 (La bola negra)
-presenta 1 millón de euros en Q3, no 3 millones.</p></li>
-<li><p><strong>Falsa.</strong> En el estado Q2, la alternativa que
-presenta el mayor beneficio es A2 (La bola negra), con 9 millones de
-euros, mientras que A4 (Dune: Parte tres) obtiene 5 millones de
-euros.</p></li>
+<li><p><strong>Falsa.</strong> Según el criterio de Laplace en situación
+favorable, A1 (La Odisea) no es la única alternativa seleccionada, ya
+que empata con A2 (La bola negra) al obtener ambas un beneficio medio de
+aproximadamente 7,33 millones de euros.</p></li>
+<li><p><strong>Falsa.</strong> Según el criterio de Hurwicz, con un
+coeficiente de optimismo k = 0,3 en una situación favorable, la
+alternativa seleccionada es A3 (Fjord), con un valor de 5,1 millones de
+euros, superior a los 4,3 millones de A2 (La bola negra).</p></li>
 </ol>
+</div>
 </div>
 
 

@@ -356,6 +356,100 @@ sobre el control del OxyContin</h1>
 
 <div id="problema-2-decisión-de-salud-pública" class="section level1">
 <h1>Problema 2: decisión de salud pública</h1>
+<div id="enunciado" class="section level2">
+<h2>Enunciado</h2>
+<p>A finales de la década de 1990 y principios de los 2000, diversas
+agencias de salud pública se enfrentaron a la introducción y fuerte
+promoción comercial de nuevos analgésicos opioides, como el OxyContin.
+Para este problema basado en una situación real, nos situamos en la
+posición de un comité de un servicio regional de salud que debe
+establecer el protocolo oficial para la prescripción de este potente
+medicamento.</p>
+<p>El comité busca maximizar el “beneficio social neto”, una métrica que
+suma los beneficios derivados del alivio efectivo del dolor en la
+población y resta los graves costes sanitarios, sociales y económicos
+derivados de la adicción, sobredosis y desvío al mercado negro.</p>
+<p>El comité valora cuatro alternativas (protocolos):</p>
+<ul>
+<li><strong>A1. Prescripción generalizada (Laxa):</strong> Permitir a
+cualquier médico recetar el fármaco para dolores moderados y crónicos no
+oncológicos, tal y como sugería la campaña de la farmacéutica.</li>
+<li><strong>A2. Uso estrictamente oncológico:</strong> Restringir la
+prescripción exclusivamente a pacientes con cáncer terminal o dolor
+agudo postoperatorio severo en entorno hospitalario.</li>
+<li><strong>A3. Prescripción con control estricto:</strong> Permitir el
+uso para dolor crónico, pero exigiendo derivación a Unidades del Dolor,
+contratos terapéuticos, test de drogas regulares y seguimiento
+exhaustivo.</li>
+<li><strong>A4. Restricción total / Sustitución:</strong> Prohibir su
+inclusión en el vademécum regional, obligando a usar alternativas no
+opioides o analgésicos tradicionales menos potentes.</li>
+</ul>
+<p>El impacto final depende fundamentalmente de la respuesta poblacional
+y del potencial adictivo real del fármaco a largo plazo (estado de la
+naturaleza):</p>
+<ul>
+<li><strong>Q1. Baja tasa de adicción:</strong> El medicamento se usa
+mayoritariamente según lo prescrito y los casos de abuso son
+anecdóticos.</li>
+<li><strong>Q2. Adicción moderada:</strong> Existe un desvío moderado al
+mercado negro y una parte de los pacientes desarrolla dependencia que
+requiere tratamiento.</li>
+<li><strong>Q3. Adicción severa:</strong> Se desata una crisis epidémica
+de opioides con altos índices de mortalidad, crimen y colapso de los
+servicios de urgencias.</li>
+</ul>
+<p>La estimación del beneficio social neto (expresado en millones de
+euros, donde los valores negativos representan un desastre social y
+económico) es la siguiente:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Protocolo</th>
+<th align="right">Q1: Baja adicción</th>
+<th align="right">Q2: Adicción moderada</th>
+<th align="right">Q3: Adicción severa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1. Prescripción generalizada</td>
+<td align="right">50</td>
+<td align="right">10</td>
+<td align="right">-80</td>
+</tr>
+<tr class="even">
+<td>A2. Uso estrictamente oncológico</td>
+<td align="right">20</td>
+<td align="right">20</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td>A3. Control estricto</td>
+<td align="right">35</td>
+<td align="right">25</td>
+<td align="right">-10</td>
+</tr>
+<tr class="even">
+<td>A4. Restricción total</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
+<p>Se pide resolver el problema utilizando la función en R que agrupa
+todos los criterios de decisión en una única tabla. Se utilizará un
+coeficiente de optimismo k = 0,4. Se evaluará la matriz tanto en
+situación favorable (buscando maximizar el beneficio social) como
+desfavorable (en caso de que la matriz se interpretara como costes a
+minimizar).</p>
 <p>Esta es la tabla de decisión del problema.</p>
 <pre class="r"><code>tabla_oxy &lt;- matrix(
   c( 50,  10, -80,
@@ -391,10 +485,10 @@ tabla_oxy</code></pre>
 ## A3. Control estricto                             -10
 ## A4. Restricción total                             10</code></pre>
 </div>
-<div id="resolución-mediante-los-criterios-de-decisión" class="section level1">
-<h1>Resolución mediante los criterios de decisión</h1>
-<div id="situación-favorable" class="section level2">
-<h2>Situación favorable</h2>
+<div id="resolución-mediante-los-criterios-de-decisión" class="section level2">
+<h2>Resolución mediante los criterios de decisión</h2>
+<div id="situación-favorable" class="section level3">
+<h3>Situación favorable</h3>
 <p>Se utiliza un coeficiente de optimismo k = 0,4.</p>
 <pre class="r"><code>criterio.Todos(tabla_oxy, alfa = 0.4, favorable = TRUE)</code></pre>
 <pre><code>##                                  Q1. Baja adicción Q2. Adicción moderada
@@ -452,8 +546,8 @@ tabla_oxy</code></pre>
 ## A4. Restricción total                                           0
 ## iAlt.Opt (fav.)                  A2. Uso estrictamente oncológico</code></pre>
 </div>
-<div id="situación-desfavorable" class="section level2">
-<h2>Situación desfavorable</h2>
+<div id="situación-desfavorable" class="section level3">
+<h3>Situación desfavorable</h3>
 <p>Se utiliza un coeficiente de optimismo k = 0,4.</p>
 <pre class="r"><code>criterio.Todos(tabla_oxy, alfa = 0.4, favorable = FALSE)</code></pre>
 <pre><code>##                                  Q1. Baja adicción Q2. Adicción moderada
@@ -506,25 +600,27 @@ tabla_oxy</code></pre>
 ## iAlt.Opt (Desfav.)               A1. Prescripción generalizada</code></pre>
 </div>
 </div>
-<div id="respuestas-a-las-cuestiones-de-verdadero-o-falso" class="section level1">
-<h1>Respuestas a las cuestiones de verdadero o falso</h1>
+<div id="respuestas-a-las-cuestiones-de-verdadero-o-falso" class="section level2">
+<h2>Respuestas a las cuestiones de verdadero o falso</h2>
 <ol style="list-style-type: decimal">
 <li><p><strong>Verdadera.</strong> La alternativa A4 tiene un valor
 constante de 10 millones en los tres estados de la naturaleza.</p></li>
-<li><p><strong>Verdadera.</strong> En el estado Q3, la alternativa A1 se
-desploma hasta -80 millones, siendo el valor negativo más extremo (la
-mayor pérdida) de todo el problema.</p></li>
-<li><p><strong>Falsa.</strong> Aunque A3 supera a A2 en los escenarios
-Q1 (35 frente a 20) y Q2 (25 frente a 20), en el escenario de adicción
-severa (Q3), A2 obtiene resultados positivos (15) mientras que A3 entra
-en pérdidas (-10).</p></li>
-<li><p><strong>Falsa.</strong> El mayor beneficio posible de toda la
-tabla es 50 millones, y se alcanza con la prescripción generalizada (A1)
-asumiendo una baja tasa de adicción (Q1).</p></li>
-<li><p><strong>Verdadera.</strong> En el estado Q2, el control estricto
-(A3) aporta un valor de 25 millones, superando los 10 millones de la
-prescripción generalizada (A1).</p></li>
+<li><p><strong>Verdadera.</strong> Los peores resultados de A1, A2, A3 y
+A4 son -80, 15, -10 y 10, respectivamente. Wald favorable selecciona A2,
+con 15.</p></li>
+<li><p><strong>Falsa.</strong> Según el criterio de Savage en situación
+favorable, la alternativa A2 tiene una pérdida de 30 millones, mientras
+que A3 tiene una pérdida de 25 millones. Por lo tanto, A3 es la
+seleccionada.</p></li>
+<li><p><strong>Falsa.</strong> Según el criterio del Punto Ideal en
+situación favorable, A2 tiene un valor de 30,41 millones, mientras que
+A3 tiene una de 29,15 millones. Por lo tanto, A3 es la
+seleccionada.</p></li>
+<li><p><strong>Verdadera.</strong> Wald desfavorable minimiza el máximo
+valor de cada fila. Los máximos son 50, 20, 35 y 10, por lo que
+selecciona A4.</p></li>
 </ol>
+</div>
 </div>
 
 
