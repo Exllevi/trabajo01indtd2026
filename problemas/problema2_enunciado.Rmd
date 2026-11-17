@@ -1,15 +1,16 @@
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
+
 # Problema 2. Decisión de salud pública sobre el control del OxyContin
 
 ## Enunciado
 
 A finales de la década de 1990 y principios de los 2000, diversas agencias de salud pública se enfrentaron a la introducción y fuerte promoción comercial de nuevos analgésicos opioides, como el OxyContin. Para este problema basado en una situación real, nos situamos en la posición de un comité de un servicio regional de salud que debe establecer el protocolo oficial para la prescripción de este potente medicamento.
 
-El comité busca maximizar el "beneficio social neto", una métrica que suma los beneficios derivados del alivio efectivo del dolor en la población y resta los graves costes sanitarios, sociales y económicos derivados de la adicción, sobredosis y desvío al mercado negro. 
+El comité busca maximizar el "beneficio social neto", una métrica que suma los beneficios derivados del alivio efectivo del dolor en la población y resta los graves costes sanitarios, sociales y económicos derivados de la adicción, sobredosis y desvío al mercado negro.
 
 El comité valora cuatro alternativas (protocolos):
 
@@ -39,8 +40,12 @@ Se pide resolver el problema utilizando la función en R que agrupa todos los cr
 
 Indica si cada afirmación es verdadera o falsa. Puede haber varias afirmaciones verdaderas.
 
-1. La alternativa A4 (Restricción total) proporciona exactamente el mismo beneficio social independientemente del estado de la naturaleza que se presente.
-2. En el peor escenario posible (Q3: Adicción severa), la prescripción generalizada (A1) genera las mayores pérdidas sociales y económicas de toda la tabla.
-3. El protocolo de control estricto (A3) domina absolutamente a la alternativa de uso estrictamente oncológico (A2), superando sus resultados en todos los escenarios posibles.
-4. El mayor beneficio posible de toda la tabla se obtiene implementando el uso estrictamente oncológico (A2) en un escenario de baja adicción (Q1).
-5. Si la tasa de adicción en la población resulta ser moderada (Q2), el protocolo con control estricto (A3) aporta un mayor beneficio social que la prescripción generalizada (A1).
+1. La alternativa A4 (Restricción total) presenta el mismo beneficio social en todos los estados de la naturaleza.
+
+2. Según el criterio de Wald en la situación favorable, la alternativa seleccionada es A2 (Uso estrictamente oncológico), ya que presenta el mejor de los peores resultados.
+
+3. Según el criterio de Savage en la situación favorable, la alternativa seleccionada es A2 (Uso estrictamente oncológico).
+
+4. Según el criterio del Punto Ideal en la situación favorable, la alternativa seleccionada es A2 (Uso estrictamente oncológico).
+
+5. Según el criterio de Wald en la situación desfavorable, la alternativa seleccionada es A4 (Restricción total), al presentar el menor de los peores resultados.

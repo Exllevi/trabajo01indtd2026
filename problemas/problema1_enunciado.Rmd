@@ -1,8 +1,9 @@
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
+
 # Problema 1. Decisión de inversión cinematográfica en los Óscar 2027
 
 ## Enunciado
@@ -36,7 +37,6 @@ Indica si cada afirmación es verdadera o falsa. Puede haber varias afirmaciones
 
 1.  La alternativa A1 (*La Odisea*) presenta un beneficio negativo en el estado Q3.
 2.  La alternativa A4 (*Dune: Parte tres*) tiene el mayor beneficio posible de toda la tabla.
-3.  La alternativa A3 (*Fjord*) presenta el mayor beneficio mínimo entre las cuatro alternativas.
-4. La alternativa A2 (*La bola negra*) presenta un beneficio de 3 millones de euros en el estado Q3.
-5. La alternativa A4 (*Dune: Parte tres*) obtiene el mayor beneficio en el estado Q2.
-
+3.  Según el criterio de Wald en la situación favorable, la alternativa seleccionada es A3 (*Fjord*).
+4.  Según el criterio de Laplace en situación favorable, la alternativa A1 (*La Odisea*) presenta el mayor beneficio medio y es la única seleccionada.
+5.  Según el criterio de Hurwicz en situación favorable, con un coeficiente de optimismo k = 0,3, la alternativa A2 (*La bola negra*) es la seleccionada.
